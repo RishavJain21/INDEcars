@@ -1,0 +1,101 @@
+{% include "header.html" %}
+<title>Feature</title>
+<link
+   rel="stylesheet"
+   href="{{ url_for('static', filename='css/feature_style.css') }}"
+   />
+</head>
+<body>
+  <div class="sticky_a">
+    <a class="clickme" href="#NumericAttributes">Numeric Attributes</a>  
+    <a class="clickme" href="#StringAttributes">String Attributes</a>  
+    <a class="clickme" href="#BooleanAttributes">Boolean Attributes</a>  
+  </div>
+  <div class="features">
+   <div>
+      <a class="box">
+         <div id="NumericAttributes">
+            <br>
+            <h1>Numeric Attributes</h1>
+            <p class="description">
+               These are the specifications of a car that has numerical value.
+               <br>
+               <i>Hover over them to know min, max and mean.</i>
+            </p>
+         </div>
+      </a>
+      <br>
+      <br>
+      <div class="grid-wrapper">
+         {% for n in f_dict %}
+         <a class="box">
+            <div class="content">
+               <h2>{{n}}</h2>
+               <p class="description">
+                  min:{{f_dict[n]['min']}}
+                  <br />
+                  max:{{f_dict[n]['max']}}
+                  <br />
+                  mean:{{f_dict[n]['mean']}}
+               </p>
+            </div>
+         </a>
+         {% endfor %}
+      </div>
+   </div>
+   <br>
+   <br>    
+   <div>
+      <a class="box">
+         <div id="StringAttributes">
+            <br>
+            <h1>String Attributes</h1>
+            <p class="description">
+               These are the specifications of a car that has different names.
+               <br>
+               <i>Click on them to know different types.</i>
+            </p>
+         </div>
+      </a>
+      <br>
+      <br>
+      {% for n in o_dict %}
+      <button class="accordion">{{n}}</button>
+      <div class="panel">
+         <p>
+         <ul>
+            {% for i in o_dict[n] %}
+            <li>{{i}}</li>
+            {% endfor %}
+         </ul>
+         </p>
+      </div>
+      {% endfor %}
+   </div>
+   <div>
+      <a class="box">
+         <div id="BooleanAttributes">
+            <br>
+            <h1>Boolean Attributes</h1>
+            <p class="description">
+               These are the extra features of a car.
+            </p>
+         </div>
+      </a>
+      <br>
+      <br>
+      <div class="grid-wrapper">
+         {% for n in b_dict %}
+         <a class="bool_box">
+            <div class="bool_content">
+               <h2>{{n}}</h2>
+            </div>
+         </a>
+         {% endfor %}
+      </div>
+   </div>
+</div>
+<br>
+   <script src="{{ url_for('static', filename='js/feature.js') }}"></script>
+</body>
+{% include "footer.html" %}

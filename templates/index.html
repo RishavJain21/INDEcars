@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>InDe</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index_style.css') }}">
+</head>
+<body>
+  <section class="showcase">
+    <header>
+      <h2 class="logo">INDE</h2>
+      <div class="toggle"></div>
+    </header>
+    <video src="{{ url_for('static', filename='video/Gear_Video.mp4') }}" muted autoplay></video>
+    <div class="overlay"></div>
+    <div class="text">
+      <h2>INformed DEcisions </h2> 
+      <h3>With data analysis</h3>
+      <p>Don't be ignorant! Make an informed decision when it comes to buying a new car. Analyse all the available features and trends , predict price and get recommendations, all right here at INDE.</p>
+      <a href="/getstart">Get Started</a>
+    </div>
+  </section>
+  <div class="menu">
+    <ul>
+      <li><a href="/index">Home</a></li>
+      <li><a href="/getstart">Get Started</a></li>
+      <li><a href="/features">Features</a></li>
+      <li><a href="/visualize">Visualization</a></li>
+      <li><a href="/recommend">Recommendation</a></li>
+      <li><a href="/predict">Price prediction</a></li>
+    </ul>
+  </div>
+
+  <script>
+    const menuToggle = document.querySelector('.toggle');
+      const showcase = document.querySelector('.showcase');
+
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        showcase.classList.toggle('active');
+      })
+  </script>
+
+</body>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% include "footer.html" %}

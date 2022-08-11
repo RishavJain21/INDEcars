@@ -1,0 +1,33 @@
+{% include "header.html" %}
+<title>Predict</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/predict_styles.css') }}">
+</head>
+<body>
+   <div class="container">
+      <h1>Select specifications</h1>
+      <p>Blank values will be set to mean or false</p>
+      <form onsubmit="{{ url_for('predict') }}" method="post">
+         <div class="choice">
+            {% for f in f_list %}
+            <p>
+               <label>
+               {{f}}<br>
+               <input type="number" name={{f}}  min="{{ranges[f]['low']}}" max="{{ranges[f]['high']}}"
+                  placeholder="{{ranges[f]['low']}}-{{ranges[f]['high']}}" step="0">
+                </label>
+            </p>
+            {% endfor %}
+            <p></p>
+            <p></p>
+            <p>
+            {% for b in b_list %}
+            <input type="checkbox" name={{b}} id={{b}}><label for={{b}}>{{b}}</label><br>        
+            {% endfor %}
+            </p>
+         </div>
+         <input type="reset">
+         <input type="submit">
+      </form>
+   </div>
+</body>
+{% include "footer.html" %}

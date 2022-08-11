@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation pdf</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <h2>Choices entered:</h2>
+    <table>
+        {% for i in choices %}
+        <tr>
+            <td>{{i}}</td>
+            <td>{{choices[i]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% for i in recs %}
+    <h2>{{i['Make']}} {{i['Model']}} {{i['Variant']}}: Rs.{{i['Ex-Showroom_Price(Rs)']}}</h2>
+        <table>
+            {% for j in i %}
+            <tr>
+                <td>{{j}}</td>
+                <td>{{i[j]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div style="page-break-before:always"></div> 
+    {% endfor %}
+</body>
+</html>

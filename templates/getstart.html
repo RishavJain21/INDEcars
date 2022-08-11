@@ -1,0 +1,90 @@
+{% include "header.html" %}
+    <title>Get Started</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/getstart_style.css') }}"
+    />
+    </head>
+    <body>
+        <div class="get_started">
+        <br>
+        <h2>Get Started</h2>
+        <p>Buying a car is an investment and a necessity for many but with so many features 
+            and attributes it's easy to get lost. So rather that trusting the salesman with 
+            all your hard earned money blindly or contacting the uncle you never really liked 
+            to ask for assistance check out our website.</p>
+        <div class="card-category-1">
+        <div class="basic-card basic-card-dark">
+            <div class="card-content">
+                <span class="card-title">Features</span>
+                <p class="card-text">
+                    Wanna know all that the automobile industry has to offer.
+                    <br>
+                    Check out all the features from price range to different available makes to extra features.
+                </p>
+            </div>
+
+            <div class="card-link">
+                <a href="/features"><span>Explore features</span></a>
+            </div>
+        </div>
+
+        <div class="basic-card basic-card-dark">
+            <div class="card-content">
+                <span class="card-title">Visualize</span>
+                <p class="card-text">
+                    Current trends, popularity of features and variation of one feature with 
+            respect to another all represented in graphs for you to explore and analyse.
+                </p>
+            </div>
+
+            <div class="card-link">
+                <a href="/visualize"><span>Visualize data</span></a>
+            </div>
+        </div>
+        <div class="basic-card basic-card-dark">
+            <div class="card-content">
+                <span class="card-title">Recommendation</span>
+                <p class="card-text">
+                    Know what you want but still cannot find a good fit? Check out our recommendation feature.
+                    <br>
+                    Enter your preferences and get 5 custom recommendations.
+                </p>
+            </div>
+
+            <div class="card-link">
+                <a href="/recommend"><span>Get recommendation</span></a>
+            </div>
+        </div>
+        <div class="basic-card basic-card-dark">
+            <div class="card-content">
+                <span class="card-title">Price Prediction</span>
+                <p class="card-text">
+                Enter the values of features that rank the highest in determining the price and predict the price according to our prediction model.
+                </p>
+            </div>
+            <div class="card-link">
+                <a href="/predict"><span>Predict price</span></a>
+            </div>
+        </div>
+    </div>
+    <h2>Terminology</h2>
+    <p>Let's get you acquainted with some of the terms about cars</p>
+        <ul>
+            <li><strong>Make</strong>: The "Make" of a car is its brand</li>
+            <li><strong>Model</strong>: The model is the name of a specific vehicle of a brand</li>
+            <li><strong>Mileage</strong>: The number of miles or the average distance that a vehicle can travel on a specified quantity of fuel.</li>
+            <li><strong>Ground clearance</strong>: The amount of clear space between the lowest part of a vehicles frame and the ground.</li>
+            <li><strong>Wheelbase</strong>: The distance between the front and rear axles of a vehicle.</li>
+            <li><strong>Auto Dimming Rear-View_Mirror</strong>: It consists of a mirror element and an electronic system that detects light from in front and behind by means of photo sensors</li>
+            <li><strong>Drivetrain</strong>: The system in a motor vehicle which connects the transmission to the drive axles</li>
+            <li><strong>Emission Norm</strong>: Emission norms that set the maximum permissible levels for pollutants that an automotive or a two-wheeler exhaust can emit.</li>
+        </ul>
+    <p>All prediction and recommendations on this website is based on our dataset and models.</p>
+    <a class="clickme" href="{{ url_for('static', filename='dataset/cars_engage_2022.csv') }}" download>Download our dataset.</a>
+        <br>
+        <br>
+    </div>
+    </body>
+
+{% include "footer.html" %}

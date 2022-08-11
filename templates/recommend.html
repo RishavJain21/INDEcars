@@ -1,0 +1,47 @@
+{% include "header.html" %}
+<title>Recommend</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/predict_styles.css') }}">
+</head>
+<body>
+   <div class="container">
+      <h1>Select specifications</h1>
+      <p>Enter only the feilds you have a preferance in.</p>
+      <p class="warning"><i>{{warning}}</i></p>
+      <form onsubmit="{{ url_for('recommend') }}" method="post">
+         <div class="choice">
+            {% for n in f_dict %}
+            <p>
+               <label>
+               {{n}}<br>
+               <input type="number" name="{{n}}"
+                  min="{{f_dict[n]['min']}}" max="{{f_dict[n]['max']}}"
+                  placeholder="{{f_dict[n]['min']}}-{{f_dict[n]['max']}}" step="0">
+               </label>
+            </p>
+            {% endfor %}
+            {% for n in b_dict %}
+            <p>
+               <input type="checkbox" name="{{n}}">{{n}}</label><br>
+            </p>
+            {% endfor %}
+            {% for n in o_dict %}
+            <p>
+               <label>
+                  {{n}}<br>
+                  <input list="{{n}}" name="{{n}}">
+                  <datalist id="{{n}}">
+                     {% for i in o_dict[n] %}
+                     <option value="{{i}}">
+                        {% endfor %}
+                  </datalist>
+               </label>
+            </p>
+            {% endfor %}
+         </div>
+         <input type="submit">
+         <input type="reset">
+   </div>
+   </form>
+   </div>
+</body>
+{% include "footer.html" %}

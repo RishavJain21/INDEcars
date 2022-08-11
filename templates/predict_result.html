@@ -1,0 +1,22 @@
+{% include "header.html" %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/predict_result_style.css') }}">
+    <title>Recommend</title>
+</head>
+<body> 
+    <h3>{{warning}}</h3>
+    <h3>{{prediction_text}}</h3>
+    <h3>Specification entered:</h3>
+    <div class="specs">
+        <table>
+            {% for i in spec %}
+            <tr>
+                <td>{{i}}</td>
+                <td>{{spec[i]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <br>
+    <a class="clickme" href="/predict">Make another prediction</a>
+</body>
+{% include "footer.html" %}

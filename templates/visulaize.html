@@ -1,0 +1,78 @@
+{% include "header.html" %}
+<title>Visualize</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/visualize_style.css') }}">
+</head>
+<body>
+   <div class="select_graph">
+      <p>Apply filter to get graphs.
+         (Note: Some of the graphs may not have any logical significance.)
+      </p>
+      <!-- <label for="list1">Devika</label> -->
+      <form onsubmit="{{ url_for('visualize') }}" method="post">
+         <label>
+            Variable 1<br>
+            <input list="Variable_1" name="Variable_1">
+            <datalist id="Variable_1">
+               {% for i in vars_l %}
+               <option value="{{i}}">
+                  {% endfor %}
+            </datalist>
+         </label>
+         <label>
+         Variable 2<br>
+         <input list="Variable_2" name="Variable_2">
+         <datalist id="Variable_2">
+         {% for i in vars_l %}
+         <option value="{{i}}">
+         {% endfor %}
+         </datalist>
+         </label>
+         <p>
+         <input type="submit" value="Apply Filter">
+         </p>
+         <br>
+      </form>
+      <form onsubmit="{{ url_for('visualize') }}" method="post">
+      <label>
+      Type<br>
+      <input list="Type" name="Type">
+      <datalist id="Type">
+      {% for i in types_l %}
+      <option value="{{i}}">
+      {% endfor %}
+      </datalist>
+      </label>
+      <p>
+      <input type="submit" value="Apply Filter">
+      </p>
+      </form>
+   </div>
+   {% if filtered == 0 %}
+   <p>Apply filters to view graphs</p>
+   {% endif %}
+   {% for i in graphs %}
+   <div class="card_d">
+   <div class="info">
+   <p class="title">{{i['variable_1']}}
+   {% if i['variable_2'] != "None" %}
+   vs
+   {{i['variable_2']}}</p>
+   {% endif %}
+   <p class="text">{{i['Description']}} </p>
+   </div>
+   <div class="photo">
+   <img src="{{i['path']}}" alt="">
+   </div>
+   </div>
+   {% endfor %}
+   <br>
+   <br>
+   <h3>Terminology</h3>
+   <ul class="terminology">
+      <li><strong>Heatmap</strong>:A heatmap (or heat map) is a graphical representation of data where values are depicted by color.</li>
+      <li><strong>Waffle</strong>:A waffle chart is basically a square display, usually consisting of many smaller squares arranged in a layout. The squares are colored according to the proportions you are aiming to visualize, similarly to how you would color different slices of a pie chart.</li>
+      <li><strong>Regplot</strong>:A plot of data that shows linear dependency among them.</li>
+      <li><strong>Scatter</strong>:A scatter plot (aka scatter chart, scatter graph) uses dots to represent values for two different numeric variables. The position of each dot on the horizontal and vertical axis indicates values for an individual data point. Scatter plots are used to observe relationships between variables..</li>
+   </ul>
+</body>
+{% include "footer.html" %}

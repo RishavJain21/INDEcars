@@ -1,0 +1,38 @@
+{% include "header.html" %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/recommended_result.css') }}">
+<title>Recommend</title>
+</head>
+<body>
+   <br>
+   <br>
+   <div class="slideshow-container">
+      {% for i in recs %}
+      <div class="slide">
+         <h2>{{i['Make']}} {{i['Model']}} {{i['Variant']}}: Rs.{{i['Ex-Showroom_Price(Rs)']}}</h2>
+         <br>
+         <br>
+         <div class="slidetable">
+         <table>
+            {% for j in i %}
+            <tr>
+               <td>{{j}}</td>
+               <td>{{i[j]}}</td>
+            </tr>
+            {% endfor %}
+         </table>
+      </div>
+      </div>
+      {% endfor %}
+      <a id="neg" class="prev">&#10094;</a>
+      <a id="pos" class="next">&#10095;</a>
+   </div>
+   <div class="pill-container">
+      {% for i in count %}
+      <span data-index="{{i}}" class="pill"></span>
+      <div class="progress"></div>
+      {% endfor %}
+   </div>
+   <br>
+</body>
+<script src="{{ url_for('static', filename='js/recommended_result.js') }}"></script>
+{% include "footer.html" %}

@@ -1,0 +1,38 @@
+body {
+  padding: 0% 10%;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+div.specs {
+  height: 330px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.clickme {
+  background-color: #dddddd;
+  color:black;
+  padding: 8px 20px;
+  text-decoration:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+.clickme:hover {
+  color: white;
+  background-color: black;
+}
