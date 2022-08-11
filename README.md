@@ -71,7 +71,7 @@ Note: make sure you have **Python 3.10.4**  and **git version 2.34.1** installed
 
 ```git init```
 
-```git clone https://github.com/Devika-Baid/inde_car.git```
+```git clone https://github.com/RishavJain21/INDEcars.git```
 
 ```cd inde_car```
 
