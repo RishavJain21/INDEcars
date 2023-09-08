@@ -20,8 +20,6 @@ The web app was built in Python using the following libraries:
 
 # Table of contents
 
-- [Project Title](#project-title)
-- [Demo-Preview](#demo-preview)
 - [Table of contents](#table-of-contents)
 - [Installation](#installation)
 - [Footer](#footer)
